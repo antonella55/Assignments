@@ -5,3 +5,6 @@ Amanda could use cd ~  cd   cd .. cd ~/data/..
 
 Relative Path Resolution
 ls ../backup will display original pnas_final pnas_sub because we went back into "Users" and then look inside "backup"
+
+ls Reading Comprehension
+The command needed will be ls -r -F or ls -r -F /Users/backup
