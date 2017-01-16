@@ -2,3 +2,6 @@ Antonella Gonzalez
 
 Absolute vs Relative Paths
 Amanda could use cd ~  cd   cd .. cd ~/data/..
+
+Relative Path Resolution
+ls ../backup will display original pnas_final pnas_sub because we went back into "Users" and then look inside "backup"
