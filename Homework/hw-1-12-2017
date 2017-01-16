@@ -8,3 +8,8 @@ ls ../backup will display original pnas_final pnas_sub because we went back into
 
 ls Reading Comprehension
 The command needed will be ls -r -F or ls -r -F /Users/backup
+
+Exploring more ls Arguments
+ls -l includes a long list format where the file/directory names are displayed along with file size info and time of last modification.
+ls -h makes the file size human readable, simplified/rounded number
+
