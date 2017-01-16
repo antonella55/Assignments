@@ -13,3 +13,5 @@ Exploring more ls Arguments
 ls -l includes a long list format where the file/directory names are displayed along with file size info and time of last modification.
 ls -h makes the file size human readable, simplified/rounded number
 
+Listing Recursively and by Time
+ls -R -t will display directories and sub directories and so on in alphabetical order while the files/directories in each will be sorted by time of last change.
