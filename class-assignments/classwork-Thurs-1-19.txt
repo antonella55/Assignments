@@ -1,0 +1,26 @@
+There are 9515 lines in the Marra2014_data.fasta file in CDB/unix (wc -l filename)
+To make a file in another directory use: touch filepath/file.txt 
+  729  ls ../sandbox/
+  730  ls
+  731  cd ../../
+  732  cd unix/data/
+  733  touch removeme.txt ~/CSB/unix/sandbox/
+  734  ls ~/CSB/unix/sandbox/
+  735  touch ~/CSB/unix/sandbox/removeme.txt
+  736  ls  ~/CSB/unix/sandbox/
+  737  rm toromove.txt
+  738  rm -f toromove.txt
+  739  ls
+  740  cd ../
+  741* ls
+  742  ls
+  743  ls  ~/CSB/unix/sandbox/
+  744  cd ../
+  745  cd data/
+  746  history 5
+  747  history 5 >> ~/Desktop/eeb-177/lab-work/class-assignments/classwork-Thurs-1-19.txt 
+  748  history 20 >> ~/Desktop/eeb-177/lab-work/class-assignments/classwork-Thurs-1-19.txt 
+
+Marra2014_data.fasta has 13335 words
+
+
