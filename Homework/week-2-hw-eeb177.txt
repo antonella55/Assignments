@@ -1,0 +1,195 @@
+Antonella Gonzalez
+1. The Orders for the first 5 species are : Rodentia, Rodentia, Rodentia, Macroscelidea, Rodentia
+(head -n 6 filename | cut -d ';' -f 2 | tail n +2)
+
+2. There are 53 unique families in the data
+
+      9 Abrocomidae
+      2 Acrobatidae
+      1 Ailuridae
+      7 Anomaluridae
+      1 Antilocapridae
+     11 Aotidae
+      1 Aplodontiidae
+     28 Atelidae
+      4 Balaenidae
+      8 Balaenopteridae
+     15 Bathyergidae
+    136 Bovidae
+      4 Bradypodidae
+      5 Burramyidae
+      6 Caenolestidae
+     42 Callitrichidae
+      8 Calomyscidae
+      3 Camelidae
+     35 Canidae
+     13 Capromyidae
+      2 Castoridae
+     18 Caviidae
+     17 Cebidae
+    123 Cercopithecidae
+     54 Cervidae
+     29 Cheirogaleidae
+      6 Chinchillidae
+     21 Chrysochloridae
+      1 Craseonycteridae
+    684 Cricetidae
+      5 Ctenodactylidae
+     60 Ctenomyidae
+      2 Cuniculidae
+      1 Cyclopedidae
+      2 Cynocephalidae
+     21 Dasypodidae
+     13 Dasyproctidae
+     72 Dasyuridae
+      1 Daubentoniidae
+     41 Delphinidae
+      1 Diatomyidae
+     94 Didelphidae
+      1 Dinomyidae
+     50 Dipodidae
+      1 Dugongidae
+      2 Echimydae
+     84 Echimyidae
+      2 Elephantidae
+     52 Emballonuridae
+      7 Equidae
+     18 Erethizontidae
+     24 Erinaceidae
+      1 Eschrichtiidae
+      8 Eupleridae
+      1 Family
+     36 Felidae
+      2 Furipteridae
+     18 Galagidae
+     39 Geomyidae
+      2 Giraffidae
+     28 Gliridae
+     34 Herpestidae
+     62 Heteromyidae
+      2 Hippopotamidae
+     84 Hipposideridae
+      6 Hominidae
+      4 Hyaenidae
+     16 Hylobatidae
+      1 Hypsiprymnodontidae
+     11 Hystricidae
+     18 Indriidae
+      3 Iniidae
+     22 Lemuridae
+     24 Lepilemuridae
+     62 Leporidae
+     10 Lorisidae
+     63 Macropodidae
+     17 Macroscelididae
+      8 Manidae
+      5 Megadermatidae
+      2 Megalonychidae
+     12 Mephitidae
+      1 Microbiotheriidae
+    100 Molossidae
+      2 Monodontidae
+      9 Mormoopidae
+      7 Moschidae
+    701 Muridae
+     58 Mustelidae
+      1 Myocastoridae
+      1 Myrmecobiidae
+      3 Myrmecophagidae
+      2 Mystacinidae
+      2 Myzopodidae
+      1 Nandiniidae
+     11 Natalidae
+      1 Neobalaenidae
+     59 Nesomyidae
+      2 Noctilionidae
+      2 Notoryctidae
+     16 Nycteridae
+     30 Ochotonidae
+     13 Octodontidae
+      1 Odobenidae
+      1 Ornithorhynchidae
+      1 Orycteropodidae
+     15 Otariidae
+      2 Pedetidae
+     18 Peramelidae
+     11 Petauridae
+      1 Petromuridae
+     26 Phalangeridae
+      1 Phascolarctidae
+     18 Phocidae
+      8 Phocoenidae
+    172 Phyllostomidae
+      3 Physeteridae
+     43 Pitheciidae
+      2 Platacanthomyidae
+      1 Platanistidae
+      8 Potoroidae
+      2 Prionodontidae
+      5 Procaviidae
+     14 Procyonidae
+     18 Pseudocheiridae
+    183 Pteropodidae
+      1 Ptilocercidae
+      5 Rhinocerotidae
+     74 Rhinolophidae
+      4 Rhinopomatidae
+    279 Sciuridae
+      2 Solenodontidae
+    376 Soricidae
+     21 Spalacidae
+     18 Suidae
+      4 Tachyglossidae
+     41 Talpidae
+      4 Tapiridae
+     10 Tarsiidae
+      1 Tarsipedidae
+      4 Tayassuidae
+     33 Tenrecidae
+      2 Thryonomyidae
+      1 Thylacomyidae
+      4 Thyropteridae
+     10 Tragulidae
+      3 Trichechidae
+     19 Tupaiidae
+      8 Ursidae
+    421 Vespertilionidae
+     33 Viverridae
+      3 Vombatidae
+     21 Ziphiidae
+
+3. History for 1.7.3
+  885  ls
+  886  cd sandbox/
+  887  tail -n +2 ../data/Pacifici2013_data.csv 
+  888  tail -n +2 ../data/Pacifici2013_data.csv | cut -d ';' -f 2-6
+  889  tail -n +2 ../data/Pacifici2013_data.csv | cut -d ';' -f 2-6 | tr -s ';' ' '
+  890  tail -n +2 ../data/Pacifici2013_data.csv | cut -d ';' -f 2-6 | tr -s ';' ' ' | sort -n -r -k 6
+  891  tail -n +2 ../data/Pacifici2013_data.csv | cut -d ';' -f 2-6 | tr -s ';' ' ' | sort -n -r -k 6 > BodyM.csv
+  892  ls
+  893  head BodyM.csv 
+  894  history 10 >> ~/Desktop/eeb-177/lab-work/Homework/week-2-hw-eeb177.txt 
+
+4.  The 10th largest species is Eubalaena glacialis and the 10th smallest species is Pipitrellus nanulus.
+
+5. History for 1.7.4
+
+  907  wc -1 BodyM.csv 
+  908  wc -l BodyM.csv 
+  909  grep Vomatidae BodyM.csv 
+  910  grep -c Vombatidae BodyM.csv 
+  911  grep Bos BodyM.csv 
+  912  grep -w Bos BodyM.csv 
+  913  grep -i Bos BodyM.csv 
+  914  grep -B 2 -A 2 "Gorilla gorilla" BodyM.csv 
+  915  grep -n "Gorilla gorilla" BodyM.csv 
+  916  grep Gorilla BodyM.csv | grep -v gorilla
+  917  grep -w "Gorilla\|Pan" BodyM.csv 
+  918  cd ~/CSB/unix/
+  919  grep -r "Gorilla" data/
+  920  history 14 >> ~/Desktop/eeb-177/lab-work/Homework/week-2-hw-eeb177.txt 
+
+6. The size of Marra2014_data.fasta is 556K
+There are 16 isogroup00036 contigs
+
+
