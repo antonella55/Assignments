@@ -191,5 +191,14 @@ Antonella Gonzalez
 
 6. The size of Marra2014_data.fasta is 556K
 There are 16 isogroup00036 contigs
+There are 43 unique isogroups
+
+7.
+
+8. 
+Using grep: grep -w "of" haiku.txt
+Pipeline Reading:The shell script will count the number of lines in the files ending in *.dat and these files are sorted numerically
+Matching and Subtracting: find /data -name ose.dat | grep -v temp
+Tracking a Species: grep -w $1 -r $2 | cut -d , -f 1,3 > $1.txt
 
 
