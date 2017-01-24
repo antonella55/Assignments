@@ -4,3 +4,73 @@ Classwork---Antonella Gonzalez
 /home/eeb177-student/Desktop/eeb-177/lab-work/class-assignments/classwork-Tues-1-17.txt
 /home/eeb177-student/Desktop/eeb-177/lab-work/class-assignments/classwork-Thurs-1-19.txt
 
+ 
+  
+History
+ 1091  cd CSB/unix/sandbox/
+ 1092  wget http://tinyurl.com/cep-taxa -0 cep-taxa.txt
+ 1093  wget http://tinyurl.com/cep-taxa -O cep-taxa.txt
+ 1094  ls
+ 1095  less cep-taxa.txt 
+ 1096  grep Orchidaceae cep-taxa.txt 
+ 1097  grep Orchidaceae cep-taxa.txt | wc -l
+ 1098  grep -c Orchidaceae cep-taxa.txt
+ 1099  grep Falcon cep-taxa.txt 
+ 1100  grep falcon cep-taxa.txt 
+ 1101  grep -i falcon cep-taxa.txt 
+ 1102  grep -i Macaws
+ 1103  grep -i Macaws cep-taxa.txt 
+ 1104  grep Ara 
+ 1105  grep Ara cep-taxa.txt 
+ 1106  grep macao cep-taxa.txt 
+ 1107  grep Ara cep-taxa.txt 
+ 1108  grep -i -w Ara cep-taxa.txt 
+ 1109  grep -B 3 Cebus
+ 1110  grep -B 3 Cebus cep-taxa.txt 
+ 1111  grep -B 3 -i -w Cebus cep-taxa.txt 
+ 1112  grep -A 3 -i -w Cebus cep-taxa.txt 
+ 1113  grep -i -n iguana cep-taxa.txt 
+ 1114  grep -v -n ara cep-taxa.txt 
+ 1115  grep -v -c ara cep-taxa.txt 
+ 1116  grep -i -v -c ara cep-taxa.txt 
+ 1117  grep -v -c -i -w ara cep-taxa.txt 
+ 1118  ls -l
+ 1119  find wildcard .*
+ 1120  ls -l
+ 1121  ls -a
+ 1122  cd ../
+ 1123  ls
+ 1124  cd sandbox/
+ 1125  ls
+ 1126  ls ../
+ 1127  ls ../data
+ 1128  ls *.txt ../data
+ 1129  find ../data
+ 1130  find /home/eeb177-student/CSB/unix/data/
+ 1131  find /home/eeb177-student/CSB/unix/data/ | wc -l
+ 1132  find /home/eeb177-student/CSB/unix/data/ -name "n30.txt"
+ 1133  find /home/eeb177-student/Desktop/ -name "classwork-Tues-1-17.txt"
+ 1134  find /home/eeb177-student/CSB/unix/ -iname "about.txt
+ 1135  find /home/eeb177-student/CSB/unix/ -name "about.txt
+ 1136  find ../data -name "about.txt
+ 1137  find ../data/ -name "about*"
+ 1138  find /home/eeb177-student/Desktop/ -iname "*.txt"
+ 1139  find /home/eeb177-student/Desktop/eeb-177/lab-work/class-assignments/ -iname "*.txt"
+ 1140  find /home/eeb177-student/Desktop/eeb-177/lab-work/class-assignments/ -iname "*.txt" >> ~/Desktop/eeb-177/lab-work/class-assignments/classwork-Tues-1-24.txt 
+ 1141  find /home/eeb177-student/Desktop/eeb-177/lab-work/class-assignments/ -iname "classwork*" >> ~/Desktop/eeb-177/lab-work/class-assignments/classwork-Tues-1-24.txt 
+ 1142  find ../data -maxdepth 1 -name "*.txt" | wc -l
+ 1143  find ../data -maxdepth 1 -name "*.txt" 
+ 1144  find ../data -maxdepth 1 -name "*.txt" | wc -l
+ 1145  find ../data -name "*.txt" | wc -l
+ 1146  ls -l
+ 1147  ls -a
+ 1148  touch permissions.txt
+ 1149  ls -l
+ 1150  chmod u=twx permissions.txt
+ 1151  ls -l
+ 1152  chmod u=rwx permissions.txt
+ 1153  ls
+ 1154  ls -l
+ 1155  chmod g+w,u+x permissions.txt 
+ 1156  ls -l
+ 1157  history >> ~/Desktop/eeb-177/lab-work/class-assignments/classwork-Tues-1-24.txt 
