@@ -192,7 +192,7 @@ Antonella Gonzalez
 6. The size of Marra2014_data.fasta is 556K
 There are 16 isogroup00036 contigs
 There are 43 unique isogroups
-
+contig00329 has the most numreads=995
 7.
 
 8. 
