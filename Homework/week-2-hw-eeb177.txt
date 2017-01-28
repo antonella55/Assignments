@@ -194,7 +194,7 @@ There are 16 isogroup00036 contigs
 There are 43 unique isogroups
 contig00329 has the most numreads=995
 7.
-
+for filename in *.txt; do cp $filename ~/CSB/unix/sandbox/temp/edited-$filename; done
 8. 
 Using grep: grep -w "of" haiku.txt
 Pipeline Reading:The shell script will count the number of lines in the files ending in *.dat and these files are sorted numerically
