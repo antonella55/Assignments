@@ -197,8 +197,9 @@ contig00329 has the most numreads=995
 for filename in *.txt; do cp $filename ~/CSB/unix/sandbox/temp/edited-$filename; done
 8. 
 Using grep: grep -w "of" haiku.txt
-Pipeline Reading:The shell script will count the number of lines in the files ending in *.dat and these files are sorted numerically
-Matching and Subtracting: find /data -name ose.dat | grep -v temp
-Tracking a Species: grep -w $1 -r $2 | cut -d , -f 1,3 > $1.txt
+Pipeline Reading:The shell script will count the number of lines within the files ending in *.dat and these files are sorted numerically by the number of lines they contain
+Matching and Subtracting: grep -v "temp" $(find /data -name '*ose.dat')
+Tracking a Species: cut -d : -f 2 | grep -w $1 -r $2 | cut -d , -f 1,3 > $1.txt
+Little Women: for LittleWomen.txt: do grep -G (Jo|Meg|Beth|Amy) |wc
 
 
