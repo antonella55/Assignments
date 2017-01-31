@@ -1,0 +1,10 @@
+Antonella Gonzalez
+1.11.2
+1) individual 3 was recorded 61 times
+	individual 27 was recorded 5 times
+2) for maleID in Gesquiere2011_data.csv; do cut -f 1 $maleID | uniq -c; done
+
+3)
+
+1.11.3
+1)
