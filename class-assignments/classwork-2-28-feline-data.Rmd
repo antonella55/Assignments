@@ -1,0 +1,23 @@
+---
+title: "Feline-data"
+author: "Antonella Gonzalez"
+date: "February 28, 2017"
+output: html_document
+---
+## Loading my first data file
+
+load in the csv file I created.
+
+```{r cats}
+cats <- read.csv(file = "data/feline-data.csv", as.is = T) #last part says dont convert characters to a factor
+cats
+str(cats)
+cats$coat #this returns the column that we wrote in csv file; use this to grab any column
+cats$weight
+cats$weight + 2
+typeof(cats$likes_string)
+cats$coat #why does it say its an integer? R by default will read character data as factors since its for statistical analysis
+as.character(cats$coat) -> dd #now we have them in quotes
+typeof(dd) #now its a character/string(in python terms), not factor, but its still a factor in data frame
+typeof(cats$coat)
+```
