@@ -1,0 +1,83 @@
+---
+title: "Exercise-8"
+author: "Antonella Gonzalez"
+date: "March 1, 2017"
+output: md_document
+---
+# Exercise-8
+
+Reading in a file
+```{r}
+cocoli_dat <- read.table("/home/eeb177-student/Desktop/EEB-177/class-assignments/cocoli.txt", header = TRUE)
+#cocoli_dat <- i used a hashtag so that the knit html isnt so long
+```
+
+Now lets extract just one column
+```{r}
+#cocoli_dat
+sizes_in_94 <- cocoli_dat$dbh1
+names(sizes_in_94) <- cocoli_dat$tag #name column dbh1 using the tag column
+#names(sizes_in_94)
+```
+
+```{r}
+sizes_in_94[1] #can use this to find certain data; in this case using the tag
+```
+
+```{r}
+sizes_in_94[c("000009", "000099")]
+```
+
+Calculate Relative Growth Rate
+```{r}
+sizes_in_97 <- cocoli_dat$dbh2
+rgr_1 <- (sizes_in_97 - sizes_in_94)/sizes_in_94
+#rgr_1
+```
+
+### Now we want to add this as a new column
+```{r}
+cocoli_dat$rgr_1 <- rgr_1
+head(cocoli_dat)
+```
+
+### Plotting- GGPlot
+```{r}
+#bargraph- make with barplot()
+#boxplot - make with boxplot()
+#scatterplot - make with plot()
+#histogram - make with hist()
+
+hist(sizes_in_94, xlab = "DBH (mm)", main = "Distribution of Tree Sizes in Cocoli (1994)") #making an x label and main title
+?hist #to get other options
+```
+
+
+```{r}
+plot(x = sizes_in_94, y = sizes_in_97, main = "Scatterplot of sizes", xlab="Size in 94(mm)", ylab="Size in 97(mm)", pch = 5, col="violet", log="xy") #pch changes the shape, col changes color, log expands the scale so you can see points better
+```
+
+
+### GGPlot
+```{r}
+library(dplyr) #good for filtering data or group by a factor
+
+#%>% is identical to | in terminal
+head(cocoli_dat %>% filter(sizes_in_94 > 0)) #pass in whole dataset then filter using the condition; now we have less rows!
+```
+
+```{r}
+head(cocoli_dat %>% filter(dbh1 > 0) %>% select(dbh1)) #use to select just one column
+```
+
+```{r}
+head(cocoli_dat %>% filter(dbh1 > 0) %>% arrange(-dbh1)%>% select(spcode)) #arrange in desending order, then find the species code
+```
+
+```{r}
+head(cocoli_dat %>% filter(dbh1 > 0) %>% group_by(spcode) %>% summarize(mean_dbh_1994 = mean(dbh1)))
+```
+
+```{r}
+
+```
