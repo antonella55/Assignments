@@ -1,0 +1,65 @@
+---
+title: "week8hw"
+author: "Antonella Gonzalez"
+date: "March 6, 2017"
+output: md_document
+---
+
+```{r}
+cats <- read.csv(file = "feline-data.csv")
+age <- c(2,3,5,12)
+cats
+
+age <- c(4,5,8)
+cats <- cbind(cats, age)
+cats
+
+newRow <- list("tortoiseshell", 3.3, TRUE, 9)
+cats <- rbind(cats, newRow)
+
+levels(cats$coat)
+levels(cats$coat) <- c(levels(cats$coat), 'tortoiseshell')
+cats <- rbind(cats, list("tortoiseshell", 3.3, TRUE, 9))
+
+str(cats)
+cats$coat <- as.character(cats$coat)
+str(cats)
+
+cats[-4,]
+cats
+na.omit(cats)
+cats <- na.omit(cats)
+
+cats <- rbind(cats, cats)
+cats
+
+rownames(cats) <- NULL
+cats
+```
+## Challenge 1
+```{r}
+df <- data.frame(id = c('a', 'b', 'c'),
+                 x = 1:3,
+                 y = c(TRUE, TRUE, FALSE),
+                 stringsAsFactors = FALSE)
+
+df <- data.frame(first = c('Antonella'),
+                 last = c('Gonzalez'),
+                 lucky_number = c(8),
+                 stringsAsFactors = FALSE)
+df <- rbind(df, list('Marie', 'Curie', 238) )
+df <- cbind(df, coffeetime = c(TRUE,TRUE))
+df
+```
+## Challenge 2
+```{r}
+#download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
+gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
+
+#source(file = "scripts/load-gapminder.R")
+```
+
+##Challenge 3
+```{r}
+
+```
