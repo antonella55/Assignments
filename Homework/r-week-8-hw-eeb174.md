@@ -1,3 +1,6 @@
+Exploring Data Frames
+=====================
+
     cats <- read.csv(file = "feline-data.csv")
     age <- c(2,3,5,12)
     cats
@@ -127,5 +130,112 @@ Challenge 2
 
     #source(file = "scripts/load-gapminder.R")
 
-Challenge 3
+Subsetting Data
+===============
+
+    x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+    names(x) <- c('a', 'b', 'c', 'd', 'e')
+    x
+
+    ##   a   b   c   d   e 
+    ## 5.4 6.2 7.1 4.8 7.5
+
+    x[1]
+
+    ##   a 
+    ## 5.4
+
+    x[4]
+
+    ##   d 
+    ## 4.8
+
+    x[c(1, 3)]
+
+    ##   a   c 
+    ## 5.4 7.1
+
+    x[1:4]
+
+    ##   a   b   c   d 
+    ## 5.4 6.2 7.1 4.8
+
+    1:4
+
+    ## [1] 1 2 3 4
+
+    c(1, 2, 3, 4)
+
+    ## [1] 1 2 3 4
+
+    x[c(1,1,3)]
+
+    ##   a   a   c 
+    ## 5.4 5.4 7.1
+
+    x[6]
+
+    ## <NA> 
+    ##   NA
+
+    x[0]
+
+    ## named numeric(0)
+
+    x[-2]
+
+    ##   a   c   d   e 
+    ## 5.4 7.1 4.8 7.5
+
+    x[c(-1, -5)]  # or x[-c(1,5)]
+
+    ##   b   c   d 
+    ## 6.2 7.1 4.8
+
+Challenge 1
 -----------
+
+    x[2:4]
+
+    ##   b   c   d 
+    ## 6.2 7.1 4.8
+
+    x[-c(1,5)]
+
+    ##   b   c   d 
+    ## 6.2 7.1 4.8
+
+    x[c("b", "c", "d")]
+
+    ##   b   c   d 
+    ## 6.2 7.1 4.8
+
+    x[-which(names(x) == "a")]
+
+    ##   b   c   d   e 
+    ## 6.2 7.1 4.8 7.5
+
+    names(x) == "a"
+
+    ## [1]  TRUE FALSE FALSE FALSE FALSE
+
+    x[-which(names(x) %in% c("a", "c"))]
+
+    ##   b   d   e 
+    ## 6.2 4.8 7.5
+
+Challenge 2
+-----------
+
+    x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+    names(x) <- c('a', 'b', 'c', 'd', 'e')
+    print(x)
+
+    ##   a   b   c   d   e 
+    ## 5.4 6.2 7.1 4.8 7.5
+
+    x[-which(names(x) == "g")]
+
+    ## named numeric(0)
+
+    # A and C
