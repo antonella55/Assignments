@@ -443,3 +443,112 @@ first 20 rows and all columns.
 Create a new data.frame called gapminder\_small that only contains rows
 1 through 9 and 19 through 23. You can do this in one or two steps.
 gapminder\_small &lt;- gapminder\[c(1:9, 19:23),\]
+
+Creating Publication Quality Graphics
+=====================================
+
+    library("ggplot2")
+    gapminder <- read.csv(file = "gapminder.csv")
+    ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+      geom_point()
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-15-1.png)
+
+    ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-15-2.png)
+\#\# Challenge 1
+
+    ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-16-1.png)
+
+Challenge 2
+-----------
+
+    ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point(aes(color=continent))
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-17-1.png)
+
+Layers
+
+    ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+      geom_line()
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-18-1.png)
+
+    ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+      geom_line() + geom_point()
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-18-2.png)
+
+    ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+      geom_line(aes(color=continent)) + geom_point()
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-18-3.png)
+
+Challenge 3
+-----------
+
+    ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+     geom_point() + geom_line(aes(color=continent))
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-19-1.png)
+
+    #switching the order of point and line switched which was on top 
+
+Transformations and stats
+
+    ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
+      geom_point()
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-20-1.png)
+
+    #fix for outliers
+    ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+      geom_point(alpha = 0.5) + scale_x_log10()
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-20-2.png)
+
+    ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+      geom_point() + scale_x_log10() + geom_smooth(method="lm")
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-20-3.png)
+
+    ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+      geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-20-4.png)
+\#\# Challenge 4a and 4b
+
+    ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+      geom_point(aes(color=continent, size=1)) + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-21-1.png)
+
+    ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+      geom_point(aes(color=continent), pch=4) + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-21-2.png)
+multi-panel figures
+
+    starts.with <- substr(gapminder$country, start = 1, stop = 1)
+    az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
+    ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+      geom_line() + facet_wrap( ~ country)
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-22-1.png)
+
+    ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+      geom_line() + facet_wrap( ~ country) +
+      xlab("Year") + ylab("Life expectancy") + ggtitle("Figure 1") +
+      scale_colour_discrete(name="Continent") +
+      theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-22-2.png)
+\#\# Challenge 5
+
+    ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
+     geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
+
+![](r-week-8-hw-eeb174_files/figure-markdown_strict/unnamed-chunk-23-1.png)
