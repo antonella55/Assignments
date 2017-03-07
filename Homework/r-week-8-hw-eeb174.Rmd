@@ -4,7 +4,7 @@ author: "Antonella Gonzalez"
 date: "March 6, 2017"
 output: md_document
 ---
-
+# Exploring Data Frames
 ```{r}
 cats <- read.csv(file = "feline-data.csv")
 age <- c(2,3,5,12)
@@ -59,7 +59,229 @@ gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
 #source(file = "scripts/load-gapminder.R")
 ```
 
-##Challenge 3
+# Subsetting Data
 ```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+x
+x[1]
+x[4]
+x[c(1, 3)]
+x[1:4]
+1:4
+c(1, 2, 3, 4)
+x[c(1,1,3)]
+x[6]
+x[0]
+x[-2]
+x[c(-1, -5)]  # or x[-c(1,5)]
 
 ```
+## Challenge 1
+```{r}
+x[2:4]
+x[-c(1,5)]
+x[c("b", "c", "d")]
+```
+```{r}
+x[-which(names(x) == "a")]
+names(x) == "a"
+x[-which(names(x) %in% c("a", "c"))]
+```
+## Challenge 2
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+
+x[-which(names(x) == "g")]
+# A and C 
+```
+```{r}
+x <- 1:3
+x
+names(x) <- c('a', 'a', 'a')
+x
+
+names(x) == c('a', 'c')
+
+x[c(TRUE, TRUE, FALSE, FALSE)]
+```
+## Challenge 3
+```{r}
+x <- c(5.4, 6.2, 7.1, 4.8, 7.5)
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+print(x)
+
+#Write a subsetting command to return the values 4<x<7
+x_subset <- x[x<7 & x>4]
+print(x_subset)
+
+```
+Factor subsetting
+```{r}
+f <- factor(c("a", "a", "b", "c", "c", "d"))
+f[f == "a"]
+f[f %in% c("b", "c")]
+f[1:3]
+f[-3]
+
+#Matrix subsetting
+set.seed(1)
+m <- matrix(rnorm(6*4), ncol=4, nrow=6)
+m[3:4, c(3,1)]
+m[, c(3,4)]
+m[3,]
+m[3, , drop=FALSE]
+matrix(1:6, nrow=2, ncol=3)
+matrix(1:6, nrow=2, ncol=3, byrow=TRUE)
+```
+## Challenge 4
+```{r}
+m <- matrix(1:18, nrow=3, ncol=6)
+print(m)
+#D. m[2,c(4,5)]
+```
+List subsetting
+```{r}
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+xlist[1]
+xlist[1:2]
+xlist[[1]]
+xlist[["a"]]
+xlist$data
+```
+## Challenge 5
+```{r}
+xlist <- list(a = "Software Carpentry", b = 1:10, data = head(iris))
+xlist$b[2]
+
+```
+## Challenge 6
+```{r}
+#mod <- aov(pop ~ lifeExp, data=gapminder)
+#attributes(mod) ## `df.residual` is one of the names of `mod`
+#mod$df.residual
+```
+
+###data frames
+```
+head(gapminder[3])
+head(gapminder[["lifeExp"]])
+head(gapminder$year)
+gapminder[1:3,]
+gapminder[3,]
+```
+## Challenge 7
+```
+# gapminder[gapminder$year = 1957,]
+gapminder[gapminder$year == 1957,]
+
+# gapminder[,-1:4]
+gapminder[,-c(1:4)]
+
+# gapminder[gapminder$lifeExp > 80]
+gapminder[gapminder$lifeExp > 80,]
+
+# gapminder[1, 4, 5]
+gapminder[1, c(4, 5)]
+
+# gapminder[gapminder$year == 2002 | 2007,]
+ gapminder[gapminder$year == 2002 | gapminder$year == 2007,]
+ gapminder[gapminder$year %in% c(2002, 2007),]
+``` 
+## Challenge 8
+Why does gapminder[1:20] return an error? How does it differ from gapminder[1:20, ]?
+  -gapminder is a data.frame so needs to be subsetted on two dimensions. gapminder[1:20, ] subsets the data to give the first 20 rows and all columns.
+  
+Create a new data.frame called gapminder_small that only contains rows 1 through 9 and 19 through 23. You can do this in one or two steps.
+  gapminder_small <- gapminder[c(1:9, 19:23),]
+
+
+# Creating Publication Quality Graphics
+```{r}
+library("ggplot2")
+gapminder <- read.csv(file = "gapminder.csv")
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp))
+```
+## Challenge 1
+```{r}
+ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
+```
+
+## Challenge 2
+```{r}
+ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point(aes(color=continent))
+```
+
+Layers
+```{r}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line()
+
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country, color=continent)) +
+  geom_line() + geom_point()
+
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+  geom_line(aes(color=continent)) + geom_point()
+```
+
+## Challenge 3
+```{r}
+ggplot(data = gapminder, aes(x=year, y=lifeExp, by=country)) +
+ geom_point() + geom_line(aes(color=continent))
+#switching the order of point and line switched which was on top 
+```
+Transformations and stats
+```{r}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, color=continent)) +
+  geom_point()
+
+#fix for outliers
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) + scale_x_log10()
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() + scale_x_log10() + geom_smooth(method="lm")
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point() + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+```
+## Challenge 4a and 4b
+```{r}
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(aes(color=continent, size=1)) + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(aes(color=continent), pch=4) + scale_x_log10() + geom_smooth(method="lm", size=1.5)
+
+```
+multi-panel figures
+```{r}
+starts.with <- substr(gapminder$country, start = 1, stop = 1)
+az.countries <- gapminder[starts.with %in% c("A", "Z"), ]
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country)
+
+ggplot(data = az.countries, aes(x = year, y = lifeExp, color=continent)) +
+  geom_line() + facet_wrap( ~ country) +
+  xlab("Year") + ylab("Life expectancy") + ggtitle("Figure 1") +
+  scale_colour_discrete(name="Continent") +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank())
+```
+## Challenge 5
+```{r}
+
+ggplot(data = gapminder, aes(x = gdpPercap, fill=continent)) +
+ geom_density(alpha=0.6) + facet_wrap( ~ year) + scale_x_log10()
+```
+
+
+
+
+
+
