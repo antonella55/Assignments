@@ -1,0 +1,43 @@
+---
+title: "classwork-3-7"
+author: "Antonella Gonzalez"
+date: "March 7, 2017"
+output: html_document
+---
+```{r}
+library(paleotree)
+library(paleobioDB)
+
+data(graptPBDB)
+head(graptOccPBDB)
+
+```
+# Using paleotree package
+### load example graptolite PBDB occ dataset
+data(graptPBDB)
+head(graptOccPBDDB)
+
+occSpecies<-taxonSortPBDBocc(graptOccPBDB, rank="species")
+head(occSpecies)
+### get formal genera
+occGenus<-taxonSortPBDBocc(graptOccPBDB, rank="genus")
+
+occFamily<-taxonSortPBDBocc(graptOccPBDB, rank="family")
+#plot it!
+plotOccData(occSpecies,groupLabel = "Species")
+### convert occurence data to timelist format
+graptTimeSpecies<-occData2timeList(occList=occSpecies)
+
+### plot diversity through time
+taxicDivDisc(graptTimeSpecies)
+
+head(graptTimeSpecies)
+
+taxicDivDisc(graptTimeSpecies)
+#### gives us plot of diversity through time
+We see richness but we dont know how bad sampling error is affecting it
+
+# Switching to pyrate
+if we are using only extant taxa, we can use a phylogenetic tree; but it will only capture 4 split events yet there is so much species data in pbdb
+we can use pyrate to estimate rates of speciation and extinction
+quality of fossil record is crucial to estimate these rates
