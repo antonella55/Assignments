@@ -8,7 +8,7 @@ output: md_document
 # When using Rstudio, I kept getting an error when I would try to knit my file, so I copied and pasted the rcodes that I used during the assignment
 
 here is a screenshot of the error message: 
-[error](/Screenshot from 2017-03-10 17-29-05.png)
+[error](exercise-8/Screenshot from 2017-03-10 17-29-05.png)
 
 ```{r}
 housing <- read.csv("Rgraphics/dataSets/landdata-states.csv")
