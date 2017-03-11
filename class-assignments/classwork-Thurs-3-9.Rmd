@@ -1,0 +1,69 @@
+---
+title: "Thurs-3-9"
+author: "Antonella Gonzalez"
+date: "March 9, 2017"
+output: md_document
+---
+Using code from tuesday... Diversity through time
+```{r}
+library(paleotree)
+library(paleobioDB)
+
+data(graptPBDB)
+head(graptOccPBDB)
+
+occSpecies<-taxonSortPBDBocc(graptOccPBDB, rank="species")
+head(occSpecies)
+
+### get formal genera
+occGenus<-taxonSortPBDBocc(graptOccPBDB, rank="genus")
+
+occFamily<-taxonSortPBDBocc(graptOccPBDB, rank="family")
+#plot it!
+plotOccData(occSpecies,groupLabel = "Species")
+### convert occurence data to timelist format
+graptTimeSpecies<-occData2timeList(occList=occSpecies)
+
+### plot diversity through time
+taxicDivDisc(graptTimeSpecies)
+
+head(graptTimeSpecies)
+
+taxicDivDisc(graptTimeSpecies)
+```
+```{r}
+head(occSpecies)
+plotOccData(occSpecies,groupLabel = "Species")
+plotOccData(occGenus, groupLabel = "Genera")
+plotOccData(occGenus, groupLabel = "Families")
+
+pdf(file= "ranges.pdf")
+plotOccData(occSpecies,groupLabel = "Species")
+plotOccData(occGenus, groupLabel = "Genera")
+plotOccData(occGenus, groupLabel = "Families")
+dev.off()
+
+graptTimeSpecies<-occData2timeList(occList=occSpecies)
+graptTimeGenus<-occData2timeList(occList=occGenus)
+graptTimeFamily<-occData2timeList(occList=occFamily)
+layout(1:3)
+taxicDivDisc(graptTimeSpecies)
+taxicDivDisc(graptTimeGenus)
+taxicDivDisc(graptTimeFamily)
+dev.off()
+
+pdf(file="dtt.pdf")
+taxicDivDisc(graptTimeSpecies)
+taxicDivDisc(graptTimeGenus)
+taxicDivDisc(graptTimeFamily)
+dev.off()
+```
+Using the canid data set
+```{r}
+library(paleobioDB)
+#canids <-pbdb_occurrences (limit="all", vocab= "pbdb", base_name="Canidae", show=c('phylo', 'ident'))
+#head(canids)
+```
+
+
+
